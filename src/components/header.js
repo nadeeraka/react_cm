@@ -1,11 +1,11 @@
 import React from "react";
 //impt
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 
 //const branding = "Contact Manager";
 function Header(props) {
   return (
-    <div>
+    <React.Fragment>
       <nav className="navbar navbar-expand-sm navbar-dark bg-success mb-3 py-0">
         <div className="container">
           <a href="/" className="navbar-brand">
@@ -26,15 +26,15 @@ function Header(props) {
           </div>
         </div>
       </nav>
-    </div>
+    </React.Fragment>
   );
 }
-Header.defaultProps = {
-  cm: "CM"
-};
-Header.prototype = {
-  cm: PropTypes.bool.isRequired
-};
+// Header.defaultProps = {
+//   cm: "CM"
+// };
+// Header.prototype = {
+//   cm: PropTypes.bool.isRequired
+// };
 // const hedingStyle = {
 //   color: "read",
 //   fontSize: "50px"
