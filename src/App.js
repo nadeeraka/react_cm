@@ -1,25 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { Component } from "react";
+//import Contact from "./components/contact";
+import Header from "./components/header";
+import data from "./components/api";
+import Contacts from "./components/contacts";
 class App extends Component {
+  state = {
+    header: "Contact Manager",
+    data: []
+  };
+  componentDidMount() {
+    let api = data;
+    this.setState(() => ({ data: api }));
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Header cm={this.state.header} />
+        <div className="container">
+          <Contacts data={this.state.data} />
+        </div>
       </div>
     );
   }
