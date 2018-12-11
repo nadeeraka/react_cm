@@ -1,18 +1,11 @@
 import React, { Component } from "react";
-import BigModal from "./bigModal";
+
 class Contact extends Component {
   state = {
-    isClick: false,
-    data: {
-      name: "",
-      email: "",
-      phone: ""
-    }
+    isClick: false
   };
-  onModal = (e, m, p) => {
+  onModal = () => {
     this.setState(p => ({ isClick: !p.isClick }));
-    console.log(e, m, p);
-    this.setState(() => ({ data: { name: e, email: m, phone: p } }));
   };
   render() {
     const { name, email, phone } = this.props.textValue;
@@ -28,21 +21,23 @@ class Contact extends Component {
                 {name}
               </i>
             </h3>
-            <li className="list-group-item"> email- {email}</li>
-            <li className="list-group-item">phone - {phone} </li>
+            {this.state.isClick && (
+              <>
+                <li className="list-group-item"> email- {email}</li>
+                <li className="list-group-item">phone - {phone} </li>
+              </>
+            )}
           </ul>
         )}
         <div />
-        <>
-          <BigModal
-            flip={this.onModal}
-            isClick={this.state.isClick}
-            data={this.state.data}
-          />
-        </>
       </div>
     );
   }
 }
 
 export default Contact;
+//  <BigModal
+//             flip={this.onModal}
+//             isClick={this.state.isClick}
+//             data={this.state.data}
+//           />

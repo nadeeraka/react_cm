@@ -7,10 +7,10 @@ class Contacts extends Component {
     return (
       <div className="card card-body mb-3">
         {this.props.data.map(r => (
-          <li key={r.name}>
+          <p key={r.name}>
             {" "}
             <Contact key={uuid()} textValue={r} />
-          </li>
+          </p>
         ))}
       </div>
     );
